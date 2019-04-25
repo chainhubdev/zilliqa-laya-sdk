@@ -1,7 +1,8 @@
 {
   "name": "zilliqa-laya-sdk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Javascript library for developing within Zilliqa blockchain on Layabox platform.",
+  "keywords": ["zilliqa", "layabox"],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "repository": {
