@@ -2,7 +2,10 @@
   "name": "zilliqa-laya-sdk",
   "version": "0.1.1",
   "description": "Javascript library for developing within Zilliqa blockchain on Layabox platform.",
-  "keywords": ["zilliqa", "layabox"],
+  "keywords": [
+    "zilliqa",
+    "layabox"
+  ],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "repository": {
@@ -26,15 +29,16 @@
   },
   "homepage": "https://github.com/chainhubdev/zilliqa-laya-sdk",
   "dependencies": {
+    "@types/crypto-js": "^3.1.9-1",
+    "@zilliqa-js/zilliqa": "^0.5.2",
     "bip39": "^2.5.0",
     "bn.js": "^4.11.8",
     "crypto-js": "^3.1.9-1",
-    "@types/crypto-js": "^3.1.9-1",
-    "hdkey": "^1.1.0",
-    "@zilliqa-js/zilliqa": "^0.5.2"
+    "hdkey": "^1.1.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.11",
+    "dts-bundle": "^0.7.3",
     "jest": "^24.7.1",
     "prettier": "^1.17.0",
     "replace-in-file-webpack-plugin": "^1.0.6",
