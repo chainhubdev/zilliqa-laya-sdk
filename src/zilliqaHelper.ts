@@ -2,8 +2,8 @@ import { Contract, State } from '@zilliqa-js/contract';
 import { getAddressFromPrivateKey, verifyPrivateKey } from '@zilliqa-js/crypto';
 import { bytes, Long, units } from '@zilliqa-js/util';
 import { Zilliqa } from '@zilliqa-js/zilliqa';
-import bip39 from 'bip39';
-import hdkey from 'hdkey';
+const bip39 = require('bip39');
+const hdkey = require('hdkey');
 import { ErrorCode, ZilLayaError } from './errors';
 import { IZilliqaBalanceResult } from './types';
 
