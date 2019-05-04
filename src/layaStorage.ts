@@ -1,5 +1,5 @@
 import * as CryptoJS from 'crypto-js';
-import SHA512 from 'crypto-js/sha512';
+const SHA512 = require('crypto-js/sha512');
 import { ErrorCode, ZilLayaError } from './errors';
 import { IZilliqaAccount } from './zilliqaHelper';
 
