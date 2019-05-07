@@ -293,6 +293,7 @@ export class ZilliqaLaya {
     gasLimit = 100000,
   ): Promise<any> {
     const contract = ZilliqaHelper.getContractAtAddress(this.zilliqaClient, contractAddr);
+    await ZilliqaHelper.getContractState(contract);
     return this.callContract(fromAddr, contract, transition, args, amount, gasPrice, gasLimit);
   }
 
@@ -307,6 +308,7 @@ export class ZilliqaLaya {
    */
   public async getContractStateAtAddress(contractAddr: string): Promise<State> {
     const contract = ZilliqaHelper.getContractAtAddress(this.zilliqaClient, contractAddr);
+
     return ZilliqaHelper.getContractState(contract);
   }
 

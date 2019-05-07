@@ -168,5 +168,30 @@ test('deploy and call contract', async () => {
   expect(contractTx2.receipt.success).toBe(true);
 });
 
+test('call contract at address', async () => {
+  jest.setTimeout(300000);
+
+  const client = new ZilliqaLaya(ZilliqaNet.TEST);
+  const address = client.importAccountFromPrivateKey(
+    'f4c43ef478f0f05667f90c10f6d17d61c8a324e0fd5b2db2c67568c070813879');
+  const contractAddress = '017ca26d48103e415fbfdad6100f9b9c13614ec4';
+
+  const tx = await client.callContractAtAddress(
+    address,
+    contractAddress,
+    'setHello',
+    [
+      {
+        vname: 'msg',
+        type: 'String',
+        value: 'Hello World',
+      },
+    ],
+    '0',
+    '1000',
+    8000);
+  expect(tx.receipt.success).toBe(true);
+});
+
 
 
