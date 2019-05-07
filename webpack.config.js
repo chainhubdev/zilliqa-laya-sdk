@@ -1,4 +1,7 @@
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const path = require('path');
+let plugins = [];
+plugins.push(new DtsBundlePlugin());
 
 module.exports = {
     resolve: {
@@ -29,5 +32,34 @@ module.exports = {
                 exclude: /node_modules/,
             },
         ],
+    },
+    plugins: plugins,
+    optimization: {
+        minimizer: [
+            new UglifyJsPlugin({
+                cache: true,
+                parallel: true,
+                uglifyOptions: {
+                    compress: false,
+                    ecma: 6,
+                    mangle: true
+                }
+            })
+        ]
     }
+};
+
+function DtsBundlePlugin(){}
+DtsBundlePlugin.prototype.apply = function (compiler) {
+    compiler.plugin('done', function(){
+        const dts = require('dts-bundle');
+
+        dts.bundle({
+            name: 'zilliqa-laya-sdk',
+            main: './dist/types/index.d.ts',
+            out: '../zilliqa-laya-sdk.d.ts',
+            removeSource: true,
+            outputAsModuleFolder: true // to use npm in-package typings
+        });
+    });
 };
