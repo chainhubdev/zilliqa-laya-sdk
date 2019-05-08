@@ -1,0 +1,242 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>zilliqa-laya-sdk</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">zilliqa-laya-sdk</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1> zilliqa-laya-sdk</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<h1 id="zilliqa-laya-sdk">zilliqa-laya-sdk</h1>
+				<p>Javascript library for developing within Zilliqa blockchain on Layabox platform.</p>
+				<h1 id="installation">Installation</h1>
+				<h2 id="npm-style">npm style</h2>
+				<p><code>npm i -S zilliqa-laya-sdk</code></p>
+				<h2 id="layabox-style">Layabox style</h2>
+				<p>With a standard Layabox project structure:</p>
+				<p>Copy release/zilliqa-laya-sdk.js to bin/libs.</p>
+				<p>Copy release/zilliqa-laya-sdk.d.ts to libs.</p>
+				<h1 id="usage">Usage</h1>
+				<pre><code><span class="hljs-comment">// construct a zilliqa client on Test Net</span>
+<span class="hljs-keyword">const</span> zilliqaClient = <span class="hljs-keyword">new</span> ZilliqaLaya(ZilliqaNet.TEST);
+
+<span class="hljs-comment">// create a account</span>
+<span class="hljs-keyword">const</span> account = zilliqaClient.createAccount();
+
+<span class="hljs-comment">// print mnemonic words</span>
+<span class="hljs-built_in">console</span>.log(account.mnemonic);
+
+<span class="hljs-comment">// get balance of certain address</span>
+<span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> zilliqaClient.getBalance(account.address);
+
+<span class="hljs-comment">// import existing account with private key</span>
+<span class="hljs-keyword">const</span> address = zilliqaClient.importAccountFromPrivateKey(
+    <span class="hljs-string">'f4c43ef478f0f05667f90c10f6d17d61c8a324e0fd5b2db2c67568c070813879'</span>);
+
+<span class="hljs-comment">// send zil from one address to another</span>
+<span class="hljs-keyword">const</span> tx = <span class="hljs-keyword">await</span> zilliqaClient.sendToken(
+    address,
+    account.address,
+    <span class="hljs-string">'1'</span>,
+    <span class="hljs-string">'1000'</span>,
+    <span class="hljs-number">10</span>);
+
+<span class="hljs-comment">// check transaction result</span>
+<span class="hljs-built_in">console</span>.log(tx.receipt.success);</code></pre><p>More functionality such as call a contract please reference the api document.</p>
+				<hr>
+				<p>在Layabox平台使用Zilliqa区块链的Javascript库</p>
+				<h1 id="-">安装</h1>
+				<h2 id="npm-">npm方式</h2>
+				<p><code>npm i -S zilliqa-laya-sdk</code></p>
+				<h2 id="layabox-">Layabox方式</h2>
+				<p>对于一个标准的Layabox项目结构：</p>
+				<p>复制release/zilliqa-laya-sdk.js到bin/libs目录下</p>
+				<p>复制release/zilliqa-laya-sdk.d.ts到libs目录下</p>
+				<h2 id="-">使用</h2>
+				<pre><code><span class="hljs-comment">// 创建测试网客户端</span>
+<span class="hljs-keyword">const</span> zilliqaClient = <span class="hljs-keyword">new</span> ZilliqaLaya(ZilliqaNet.TEST);
+
+<span class="hljs-comment">// 创建账户</span>
+<span class="hljs-keyword">const</span> account = zilliqaClient.createAccount();
+
+<span class="hljs-comment">// 打印助记词</span>
+<span class="hljs-built_in">console</span>.log(account.mnemonic);
+
+<span class="hljs-comment">// 查询余额</span>
+<span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> zilliqaClient.getBalance(account.address);
+
+<span class="hljs-comment">// 导入已有私钥</span>
+<span class="hljs-keyword">const</span> address = zilliqaClient.importAccountFromPrivateKey(
+    <span class="hljs-string">'f4c43ef478f0f05667f90c10f6d17d61c8a324e0fd5b2db2c67568c070813879'</span>);
+
+<span class="hljs-comment">// 转账zil</span>
+<span class="hljs-keyword">const</span> tx = <span class="hljs-keyword">await</span> zilliqaClient.sendToken(
+    address,
+    account.address,
+    <span class="hljs-string">'1'</span>,
+    <span class="hljs-string">'1000'</span>,
+    <span class="hljs-number">10</span>);
+
+<span class="hljs-comment">// 检查转账结果</span>
+<span class="hljs-built_in">console</span>.log(tx.receipt.success);</code></pre><p>更多其它功能请参考API接口文档</p>
+				<h1 id="license">License</h1>
+				<p><a href="http://vjpr.mit-license.org/">MIT</a></p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_errors_.html">"errors"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_index_.html">"index"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_layastorage_.html">"laya<wbr>Storage"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_types_.html">"types"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_zilliqahelper_.html">"zilliqa<wbr>Helper"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_zilliqalaya_.html">"zilliqa<wbr>Laya"</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
