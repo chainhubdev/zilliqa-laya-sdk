@@ -9,9 +9,11 @@ Javascript library for developing within Zilliqa blockchain on Layabox platform.
 ## Layabox style
 With a standard Layabox project structure:
 
-Copy release/zilliqa-laya-sdk.js to bin/libs.
+Copy release/zilliqa-laya-sdk.js to bin/libs
 
-Copy release/zilliqa-laya-sdk.d.ts to libs.
+Copy release/zilliqa-laya-sdk.d.ts to libs
+
+You can check sample/ZilliqaJS for details.
 
 # Usage
 
@@ -44,7 +46,7 @@ const tx = await zilliqaClient.sendToken(
 console.log(tx.receipt.success);
 ```
 
-More functionality such as call a contract please reference the api document.
+More functionality please reference the [api document](https://chainhubdev.github.io/zilliqa-laya-sdk/).
 
 ---
 
@@ -60,6 +62,8 @@ More functionality such as call a contract please reference the api document.
 复制release/zilliqa-laya-sdk.js到bin/libs目录下
 
 复制release/zilliqa-laya-sdk.d.ts到libs目录下
+
+可以参考sample/ZilliqaJS示例
 
 ## 使用
 ```
@@ -90,7 +94,7 @@ const tx = await zilliqaClient.sendToken(
 // 检查转账结果
 console.log(tx.receipt.success);
 ```
-更多其它功能请参考API接口文档
+更多其它功能请参考[API接口文档](https://chainhubdev.github.io/zilliqa-laya-sdk/)
 
 # License
 [MIT](http://vjpr.mit-license.org/)

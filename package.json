@@ -18,7 +18,9 @@
     "test": "jest --config jest.config.js",
     "build": "tsc",
     "lint": "tslint -p tsconfig.json",
-    "bundle": "webpack"
+    "bundle": "webpack",
+    "docs": "typedoc --out docs src",
+    "gh-pages": "rimraf docs && npm run docs && gh-pages -d docs"
   },
   "bugs": {
     "url": "https://github.com/chainhubdev/zilliqa-laya-sdk/issues"
@@ -36,6 +38,7 @@
     "@types/jest": "^24.0.11",
     "dts-bundle": "^0.7.3",
     "dts-bundle-webpack": "^1.0.2",
+    "gh-pages": "^2.0.1",
     "jest": "^24.7.1",
     "prettier": "^1.17.0",
     "replace-in-file-webpack-plugin": "^1.0.6",
@@ -44,6 +47,7 @@
     "ts-loader": "^5.3.3",
     "tslint": "^5.16.0",
     "tslint-config-prettier": "^1.18.0",
+    "typedoc": "^0.14.2",
     "typescript": "^3.3.4000",
     "uglifyjs-webpack-plugin": "^2.0.1",
     "webpack": "^4.23.1",
