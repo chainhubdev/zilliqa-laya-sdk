@@ -76,7 +76,7 @@ typings/
 .DS_Store
 
 # build result
-lib/
+dist/
 
 # idea
 .idea/

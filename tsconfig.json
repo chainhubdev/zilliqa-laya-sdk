@@ -23,7 +23,7 @@
       ],
       "lib": [
         "dom",
-        "es2015"
+        "es6"
       ],
       "jsx": "react",
       "allowJs": false

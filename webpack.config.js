@@ -1,7 +1,8 @@
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const path = require('path');
-let plugins = [];
-plugins.push(new DtsBundlePlugin());
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const DtsBundleWebpack = require('dts-bundle-webpack')
+const path = require('path')
+
+process.traceDeprecation = true;
 
 module.exports = {
     resolve: {
@@ -14,7 +15,7 @@ module.exports = {
     },
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'release'),
         libraryTarget: 'umd',
     },
     module: {
@@ -33,7 +34,14 @@ module.exports = {
             },
         ],
     },
-    plugins: plugins,
+    plugins: [
+      new DtsBundleWebpack({
+          name: 'zilliqa-laya-sdk',
+          main: './dist/types/index.d.ts',
+          out: '../../release/zilliqa-laya-sdk.d.ts',
+          removeSource: true
+      })
+    ],
     optimization: {
         minimizer: [
             new UglifyJsPlugin({
@@ -49,17 +57,17 @@ module.exports = {
     }
 };
 
-function DtsBundlePlugin(){}
-DtsBundlePlugin.prototype.apply = function (compiler) {
-    compiler.plugin('done', function(){
-        const dts = require('dts-bundle');
-
-        dts.bundle({
-            name: 'zilliqa-laya-sdk',
-            main: './dist/types/index.d.ts',
-            out: '../zilliqa-laya-sdk.d.ts',
-            removeSource: true,
-            outputAsModuleFolder: true // to use npm in-package typings
-        });
-    });
-};
+// function DtsBundlePlugin(){}
+// DtsBundlePlugin.prototype.apply = function (compiler) {
+//     compiler.plugin('done', function(){
+//         const dts = require('dts-bundle');
+//
+//         dts.bundle({
+//             name: 'zilliqa-laya-sdk',
+//             main: './dist/types/index.d.ts',
+//             out: '../../release/zilliqa-laya-sdk.d.ts',
+//             removeSource: true,
+//             outputAsModuleFolder: true // to use npm in-package typings
+//         });
+//     });
+// };
