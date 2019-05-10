@@ -20,7 +20,7 @@
     "lint": "tslint -p tsconfig.json",
     "bundle": "webpack",
     "docs": "typedoc --out docs src",
-    "gh-pages": "rimraf docs && npm run docs && gh-pages -d docs"
+    "git-pages": "rimraf ./docs && npm run docs && touch ./docs/.nojekyll && gh-pages -d docs -t"
   },
   "bugs": {
     "url": "https://github.com/chainhubdev/zilliqa-laya-sdk/issues"
