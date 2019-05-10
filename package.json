@@ -25,7 +25,7 @@
   "bugs": {
     "url": "https://github.com/chainhubdev/zilliqa-laya-sdk/issues"
   },
-  "homepage": "https://github.com/chainhubdev/zilliqa-laya-sdk",
+  "homepage": "https://chainhubdev.github.io/zilliqa-laya-sdk/index.html",
   "dependencies": {
     "@types/crypto-js": "^3.1.9-1",
     "@zilliqa-js/zilliqa": "^0.5.2",

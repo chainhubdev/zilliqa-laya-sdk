@@ -6,14 +6,14 @@ Javascript library for developing within Zilliqa blockchain on Layabox platform.
 ## npm style
 `npm i -S zilliqa-laya-sdk`
 
-## Layabox style
-With a standard Layabox project structure:
+## Layabox style (Recommended)
+Providing a standard Layabox project structure:
 
-Copy release/zilliqa-laya-sdk.js to bin/libs
+copy release/zilliqa-laya-sdk.js to bin/libs
 
-Copy release/zilliqa-laya-sdk.d.ts to libs
+copy release/zilliqa-laya-sdk.d.ts to libs
 
-You can check sample/ZilliqaJS for details.
+You can download LayaAir IDE and open sample/ZilliqaJS for details and press F5 to have a try.
 
 # Usage
 
@@ -63,7 +63,7 @@ More functionality please reference the [api document](https://chainhubdev.githu
 
 复制release/zilliqa-laya-sdk.d.ts到libs目录下
 
-可以参考sample/ZilliqaJS示例
+可以下载LayaAir开发环境，打开sample/ZilliqaJS示例，然后按F5尝试使用。
 
 ## 使用
 ```
