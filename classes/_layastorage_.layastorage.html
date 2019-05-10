@@ -69,6 +69,14 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>LayaStorage</p>
+					</div>
+					<p>Storage class to save zilliqa private key on Layabox platform.</p>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -122,9 +130,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in layaStorage.ts:14</li>
+									<li>Defined in layaStorage.ts:20</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>constructor</p>
+								</div>
+								<p>Instantiates a LayaStorage instance with providing wallet prefix</p>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -144,7 +158,7 @@
 					<div class="tsd-signature tsd-kind-icon">storage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in layaStorage.ts:14</li>
+							<li>Defined in layaStorage.ts:20</li>
 						</ul>
 					</aside>
 				</section>
@@ -154,7 +168,7 @@
 					<div class="tsd-signature tsd-kind-icon">wallet<wbr>Prefix<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in layaStorage.ts:13</li>
+							<li>Defined in layaStorage.ts:19</li>
 						</ul>
 					</aside>
 				</section>
@@ -164,7 +178,7 @@
 					<div class="tsd-signature tsd-kind-icon">KEY_<wbr>PASSWORD_<wbr>HASH<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;password_hash&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in layaStorage.ts:11</li>
+							<li>Defined in layaStorage.ts:17</li>
 						</ul>
 					</aside>
 				</section>
@@ -174,7 +188,7 @@
 					<div class="tsd-signature tsd-kind-icon">KEY_<wbr>SALT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;salt&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in layaStorage.ts:9</li>
+							<li>Defined in layaStorage.ts:15</li>
 						</ul>
 					</aside>
 				</section>
@@ -184,7 +198,7 @@
 					<div class="tsd-signature tsd-kind-icon">WALLET_<wbr>PREFIX<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;zilliqa_laya_wallet_&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in layaStorage.ts:7</li>
+							<li>Defined in layaStorage.ts:13</li>
 						</ul>
 					</aside>
 				</section>
@@ -201,10 +215,17 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in layaStorage.ts:67</li>
+									<li>Defined in layaStorage.ts:122</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>getOrCreateSalt</p>
+								</div>
+								<p>Get password salt. If not exist, create it.</p>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>Password salt</p>
 						</li>
 					</ul>
 				</section>
@@ -218,9 +239,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in layaStorage.ts:43</li>
+									<li>Defined in layaStorage.ts:81</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>loadAccounts</p>
+								</div>
+								<p>Loads all accounts that saved in local storage</p>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -228,6 +255,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_zilliqahelper_.izilliqaaccount.html" class="tsd-signature-type">IZilliqaAccount</a><span class="tsd-signature-symbol">[]</span></h4>
+							<p>Account list</p>
 						</li>
 					</ul>
 				</section>
@@ -241,9 +269,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in layaStorage.ts:57</li>
+									<li>Defined in layaStorage.ts:105</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>saveAccounts</p>
+								</div>
+								<p>Saves account list to local storage</p>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -254,6 +288,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>Successful saved or not</p>
 						</li>
 					</ul>
 				</section>
@@ -267,9 +302,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in layaStorage.ts:21</li>
+									<li>Defined in layaStorage.ts:43</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>setPasswordHash</p>
+								</div>
+								<p>Save hashed password in local storage</p>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -290,9 +331,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in layaStorage.ts:33</li>
+									<li>Defined in layaStorage.ts:64</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>validatePassword</p>
+								</div>
+								<p>Validates providing password</p>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -300,6 +347,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>Whether equals to saved password</p>
 						</li>
 					</ul>
 				</section>
