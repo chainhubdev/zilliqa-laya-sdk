@@ -7,12 +7,32 @@ const hdkey = require('hdkey');
 import { ErrorCode, ZilLayaError } from './errors';
 import { IZilliqaBalanceResult } from './types';
 
+/**
+ * IZilliqaAccount
+ *
+ * Zilliqa account structure
+ *
+ */
 export interface IZilliqaAccount {
   address: string;
   privateKey: string;
 }
 
+/**
+ * ZilliqaHelper
+ *
+ * Helper class to communicate with zilliqa network.
+ *
+ */
 export class ZilliqaHelper {
+
+  /**
+   * createAccount
+   *
+   * Creates new account and returns account with corresponding mnemonic
+   *
+   * @returns {[IZilliqaAccount, string]} Account and mnemonic
+   */
   public static createAccount(): [IZilliqaAccount, string] {
     const mnemonic = bip39.generateMnemonic();
     const privateKey = ZilliqaHelper.mnemonicToPrivateKey(mnemonic);
@@ -21,6 +41,15 @@ export class ZilliqaHelper {
     return [{ address, privateKey }, mnemonic];
   }
 
+  /**
+   * mnemonicToPrivateKey
+   *
+   * Transfer mnemonic words to private key
+   *
+   * @param {string} Mnemonic words
+   *
+   * @returns {string} private key
+   */
   public static mnemonicToPrivateKey(mnemonic: string): string {
     const seed = bip39.mnemonicToSeed(mnemonic);
     const hdKey = hdkey.fromMasterSeed(seed);
@@ -30,6 +59,15 @@ export class ZilliqaHelper {
     return privateKey;
   }
 
+  /**
+   * mnemonicToPrivateKey
+   *
+   * Transfer mnemonic words to private key
+   *
+   * @param {string} Mnemonic words
+   *
+   * @returns {string} private key
+   */
   public static importAccountFromPrivateKey(privateKey: string): IZilliqaAccount {
     if (!verifyPrivateKey(privateKey)) {
       const message: string = 'Illegal private key.';
@@ -40,6 +78,15 @@ export class ZilliqaHelper {
     return { address, privateKey };
   }
 
+  /**
+   * importAccountFromMnemonic
+   *
+   * Import acccount from mnemonic words
+   *
+   * @param {string} Mnemonic words
+   *
+   * @returns {IZilliqaAccount} Account
+   */
   public static importAccountFromMnemonic(mnemonic: string): IZilliqaAccount {
     const privateKey = this.mnemonicToPrivateKey(mnemonic);
     if (!verifyPrivateKey(privateKey)) {
@@ -51,6 +98,16 @@ export class ZilliqaHelper {
     return { address, privateKey };
   }
 
+  /**
+   * getBalance
+   *
+   * Get balance of providing address
+   *
+   * @param {Zilliqa} Native zilliqa client
+   * @param {string} address
+   *
+   * @returns {Promise<any>} Balance
+   */
   public static async getBalance(client: Zilliqa, address: string): Promise<any> {
     const response = await client.blockchain.getBalance(address);
     if (response.error) {
@@ -64,6 +121,15 @@ export class ZilliqaHelper {
     }
   }
 
+  /**
+   * getMinimumGasPrice
+   *
+   * Get minimum gas price
+   *
+   * @param {Zilliqa} Native zilliqa client
+   *
+   * @returns {Promise<string>} Gas price
+   */
   public static async getMinimumGasPrice(client: Zilliqa): Promise<string> {
     const response = await client.blockchain.getMinimumGasPrice();
     if (response.error) {
@@ -77,6 +143,15 @@ export class ZilliqaHelper {
     }
   }
 
+  /**
+   * getNetworkId
+   *
+   * Get network id
+   *
+   * @param {Zilliqa} Native zilliqa client
+   *
+   * @returns {Promise<string>} Network id
+   */
   public static async getNetworkId(client: Zilliqa): Promise<string> {
     const response = await client.network.GetNetworkId();
     return new Promise<string>(resolve => {
@@ -85,10 +160,34 @@ export class ZilliqaHelper {
     });
   }
 
+  /**
+   * getZilliqaVersion
+   *
+   * Get zilliqa message version
+   *
+   * @param {number} Zilliqa network chain id
+   * @param {number} Message version
+   *
+   * @returns {number} Zilliqa message version
+   */
   public static getZilliqaVersion(chainID: number, msgVersion = 1): number {
     return bytes.pack(chainID, msgVersion);
   }
 
+  /**
+   * sendToken
+   *
+   * Sends token
+   *
+   * @param {Zilliqa} Native zilliqa client
+   * @param {number} Zilliqa message version
+   * @param {string} Destination address
+   * @param {string} Token amount
+   * @param {string} Gas price
+   * @param {number} Gas limit
+   *
+   * @returns {Promise<any>} Zilliqa transaction
+   */
   public static async sendToken(
     client: Zilliqa,
     version: number,
@@ -116,6 +215,20 @@ export class ZilliqaHelper {
     }
   }
 
+  /**
+   * deployContract
+   *
+   * Deploys contract on zilliqa network
+   *
+   * @param {Zilliqa} Native zilliqa client
+   * @param {string} Contract code
+   * @param {string} Contract owner
+   * @param {number} Zilliqa message version
+   * @param {string} Gas price
+   * @param {number} Gas limit
+   *
+   * @returns {Promise<any>} Zilliqa transaction
+   */
   public static async deployContract(
     client: Zilliqa,
     code: string,
@@ -153,10 +266,35 @@ export class ZilliqaHelper {
     }
   }
 
+  /**
+   * getContractAtAddress
+   *
+   * Create contract instance at providing address
+   *
+   * @param {Zilliqa} Native zilliqa client
+   * @param {string} Contract address
+   *
+   * @returns {Contract} Zilliqa contract
+   */
   public static getContractAtAddress(client: Zilliqa, address: string): Contract {
     return client.contracts.at(address);
   }
 
+  /**
+   * callContract
+   *
+   * Calls zilliqa contract
+   *
+   * @param {Zilliqa} Native zilliqa client
+   * @param {string} Contract transition
+   * @param {any} Contract parameters
+   * @param {number} Zilliqa message version
+   * @param {string} Token amount
+   * @param {string} Gas price
+   * @param {number} Gas limit
+   *
+   * @returns {Promise<any>} Zilliqa transaction
+   */
   public static async callContract(
     contract: Contract,
     transition: string,
@@ -181,6 +319,15 @@ export class ZilliqaHelper {
     }
   }
 
+  /**
+   * getContractState
+   *
+   * Get state of providing zilliqa contract
+   *
+   * @param {Contract} Zilliqa contract
+   *
+   * @returns {Promise<State>} State of zilliqa contract
+   */
   public static async getContractState(contract: Contract): Promise<State> {
     return contract.getState();
   }

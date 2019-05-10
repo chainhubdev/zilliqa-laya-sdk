@@ -17,8 +17,20 @@ export class ZilliqaLaya {
 
   private static TEST_NET_URL = 'https://dev-api.zilliqa.com';
 
+  /**
+   * netUrl
+   *
+   * Zilliqa node url
+   *
+   */
   public readonly netUrl: string;
 
+  /**
+   * zilliqaClient
+   *
+   * Native zilliqa client that provides more features.
+   *
+   */
   public readonly zilliqaClient: Zilliqa;
 
   private readonly layaStorage: LayaStorage;
