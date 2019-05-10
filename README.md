@@ -56,7 +56,7 @@ More functionality please reference the [api document](https://chainhubdev.githu
 ## npm方式
 `npm i -S zilliqa-laya-sdk`
 
-## Layabox方式
+## Layabox方式（推荐）
 对于一个标准的Layabox项目结构：
 
 复制release/zilliqa-laya-sdk.js到bin/libs目录下
