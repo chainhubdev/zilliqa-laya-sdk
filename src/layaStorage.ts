@@ -6,7 +6,7 @@ import { IZilliqaAccount } from './zilliqaHelper';
 /**
  * LayaStorage
  *
- * Storage class to save zilliqa private key on Layabox platform.
+ * Storage class to save zilliqa private key on Laya platform.
  *
  */
 export class LayaStorage {
