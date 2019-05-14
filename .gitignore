@@ -87,3 +87,7 @@ docs/
 # yarn
 package-lock.json
 yarn.lock
+
+# laya
+**/.laya/chrome
+sample/**/bundle.js
