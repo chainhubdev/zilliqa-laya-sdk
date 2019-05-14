@@ -18,11 +18,23 @@ declare module 'zilliqa-laya-sdk/zilliqaLaya' {
     /**
         * ZilliqaLaya
         *
-        * Main class to communicate with zilliqa network on Layabox platform.
+        * Main class to communicate with zilliqa network on Laya platform.
         *
         */
     export class ZilliqaLaya {
+            /**
+                * netUrl
+                *
+                * Zilliqa node url
+                *
+                */
             readonly netUrl: string;
+            /**
+                * zilliqaClient
+                *
+                * Native zilliqa client that provides more features.
+                *
+                */
             readonly zilliqaClient: Zilliqa;
             /**
                 * constructor
