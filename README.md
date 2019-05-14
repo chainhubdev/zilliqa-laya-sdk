@@ -1,13 +1,13 @@
 # zilliqa-laya-sdk
-Javascript library for developing within Zilliqa blockchain on Layabox platform.
+Javascript library for developing within Zilliqa blockchain on Laya platform.
 
 # Installation
 
 ## npm style
 `npm i -S zilliqa-laya-sdk`
 
-## Layabox style (Recommended)
-Providing a standard Layabox project structure:
+## Laya style (Recommended)
+Providing a standard Laya project structure:
 
 copy release/zilliqa-laya-sdk.js to bin/libs
 
@@ -50,14 +50,14 @@ More functionality please reference the [api document](https://chainhubdev.githu
 
 ---
 
-在Layabox平台使用Zilliqa区块链的Javascript库
+在Laya平台使用Zilliqa区块链的Javascript库
 
 # 安装
 ## npm方式
 `npm i -S zilliqa-laya-sdk`
 
-## Layabox方式（推荐）
-对于一个标准的Layabox项目结构：
+## Laya方式（推荐）
+对于一个标准的Laya项目结构：
 
 复制release/zilliqa-laya-sdk.js到bin/libs目录下
 

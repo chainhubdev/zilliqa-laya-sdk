@@ -9,7 +9,7 @@ import { LayaStorage } from './layaStorage';
 /**
  * ZilliqaLaya
  *
- * Main class to communicate with zilliqa network on Layabox platform.
+ * Main class to communicate with zilliqa network on Laya platform.
  *
  */
 export class ZilliqaLaya {
